@@ -118,7 +118,7 @@ exit /b
 )
 ```
 
-### REM หมายเหตุ : คำอธิบายข้อ 6
+### หมายเหตุ : คำอธิบายข้อ 6
 REM 6.Install Component
 Download SDK from Microsoft Dotnet SDK
 แล้วเปลี่ยนชื่อไฟล์ dotnet ที่ใน script ให้ตรงกับที่ download มาด้วยนะ
