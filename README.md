@@ -8,8 +8,6 @@ REM Check for Administrator privileges
 net session >nul 2>&1
 if %errorlevel% neq 0 (
     call :echoWithTimestamp "Please run this script as Administrator."
-    exit /b
-)
 
 REM Set UAC to low
 echo [%date% %time%"] "Setting User Account Control to low..."
@@ -75,13 +73,16 @@ echo [%timestamp%] Windows Update Service has been disabled."
 
 REM 6.Install Component
 echo [%date% %time%"] Dotnet framwork Install
-App\Dotnet\dotnet-sdk-4.8.1-win-x64.exe /q /norestart
-App\Dotnet\dotnet-sdk-5.0.408-win-x64.exe /q /norestart
-App\Dotnet\dotnet-sdk-6.0.428-win-x64.exe /q /norestart
-App\Dotnet\dotnet-sdk-7.0.410-win-x64.exe /q /norestart
-App\Dotnet\dotnet-sdk-8.0.405-win-x64.exe /q /norestart
-App\Dotnet\dotnet-sdk-9.0.101-win-x64.exe /q /norestart
-App\Analyzer\Analyzer.exe
+REM Extract Source Application and Dotnet SDK to C:\temp\App_dotnet\ 
+SourceApp.exe
+set "SOURCE_PATH=C:\temp\App_dotnet\"
+%SOURCE_PATH%\Dotnet\dotnet-sdk-4.8.1-win-x64.exe /q /norestart
+%SOURCE_PATH%\Dotnet\dotnet-sdk-5.0.408-win-x64.exe /q /norestart
+%SOURCE_PATH%\Dotnet\dotnet-sdk-6.0.428-win-x64.exe /q /norestart
+%SOURCE_PATH%\Dotnet\dotnet-sdk-7.0.410-win-x64.exe /q /norestart
+%SOURCE_PATH%\Dotnet\dotnet-sdk-8.0.405-win-x64.exe /q /norestart
+%SOURCE_PATH%\Dotnet\dotnet-sdk-9.0.101-win-x64.exe /q /norestart
+%SOURCE_PATH%\Analyzer\Analyzer.exe
 
 REM 7.Set Desktop Shortcut and Startup
 echo [%date% %time%"] Set Desktop Shortcut and Startup
@@ -109,10 +110,24 @@ reg.exe ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" /v 
 
 echo [%date% %time%"] Finish install.
 
-REM 6.Reboot System
+REM Reboot System
 echo [%date% %time%"] Wait to restart now...
 pause
 shutdown -r -t 5
 exit /b
 )
+```
+
+### REM หมายเหตุ : คำอธิบายข้อ 6
+App\Dotnet\
+```
+REM 6.Install Component
+echo [%date% %time%"] Dotnet framwork Install
+App\Dotnet\dotnet-sdk-4.8.1-win-x64.exe /q /norestart
+App\Dotnet\dotnet-sdk-5.0.408-win-x64.exe /q /norestart
+App\Dotnet\dotnet-sdk-6.0.428-win-x64.exe /q /norestart
+App\Dotnet\dotnet-sdk-7.0.410-win-x64.exe /q /norestart
+App\Dotnet\dotnet-sdk-8.0.405-win-x64.exe /q /norestart
+App\Dotnet\dotnet-sdk-9.0.101-win-x64.exe /q /norestart
+App\Analyzer\Analyzer.exe
 ```
