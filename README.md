@@ -122,6 +122,4 @@ exit /b
 REM 6.Install Component
 Download SDK from Microsoft Dotnet SDK
 แล้วเปลี่ยนชื่อไฟล์ dotnet ที่ใน script ให้ตรงกับที่ download มาด้วยนะ
-```
 [https://dotnet.microsoft.com/en-us/download/visual-studio-sdks](https://dotnet.microsoft.com/en-us/download/visual-studio-sdks)
-```
