@@ -1,7 +1,7 @@
 # BATScript
 Windows BAT Script for Setting.
 *** RUN AS ADMINISTRATOR PERMISSION ***
-###
+```
 @echo off
 :: Check for Administrator privileges
 net session >nul 2>&1
@@ -44,4 +44,4 @@ REM 6.Reboot System
 shutdown -r -t 10
 exit /b
 )
-###
+```
