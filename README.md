@@ -119,15 +119,9 @@ exit /b
 ```
 
 ### REM หมายเหตุ : คำอธิบายข้อ 6
-App\Dotnet\
-```
 REM 6.Install Component
-echo [%date% %time%"] Dotnet framwork Install
-App\Dotnet\dotnet-sdk-4.8.1-win-x64.exe /q /norestart
-App\Dotnet\dotnet-sdk-5.0.408-win-x64.exe /q /norestart
-App\Dotnet\dotnet-sdk-6.0.428-win-x64.exe /q /norestart
-App\Dotnet\dotnet-sdk-7.0.410-win-x64.exe /q /norestart
-App\Dotnet\dotnet-sdk-8.0.405-win-x64.exe /q /norestart
-App\Dotnet\dotnet-sdk-9.0.101-win-x64.exe /q /norestart
-App\Analyzer\Analyzer.exe
+Download SDK from Microsoft Dotnet SDK
+แล้วเปลี่ยนชื่อไฟล์ dotnet ที่ใน script ให้ตรงกับที่ download มาด้วยนะ
+```
+https://dotnet.microsoft.com/en-us/download/visual-studio-sdks
 ```
